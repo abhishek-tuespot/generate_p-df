@@ -1,0 +1,62 @@
+package com.example;
+
+import java.io.FileOutputStream;
+
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+public class TestClass {
+
+	private static String FILE = "/home/tuespot-abhi/pdfGenerate/FirstPdf.pdf";
+	private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+	public static final String IMAGE = "r/home/tuespot-abhi/pdfGenerate/hello.png";
+
+/*	public static void main(String[] args) {
+
+		try {
+			Document document = new Document();
+			PdfWriter.getInstance(document, new FileOutputStream(FILE));
+			document.open();
+			// adding the tag
+			String para = "Welcome to Tutorialspoint. Pvt. Ltd.";
+			// Creating an Area Break
+			Paragraph para1 = new Paragraph(para);
+			document.add(para1);
+
+			String para2 = "1231";
+			// Creating an Area Break
+			Paragraph para12 = new Paragraph(para2);
+			document.add(para12);
+
+			document.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}  */
+	
+	
+	public static void main(String[] args) throws IOException, DocumentException {
+	    File file = new File(DEST);
+	    file.getParentFile().mkdirs();
+	    new BackgroundImage().createPdf(DEST);
+	}
+	public void createPdf(String dest) throws IOException, DocumentException {
+	    Document document = new Document(PageSize.A4.rotate());
+	    PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(dest));
+	    document.open();
+	    document.add(new Paragraph("Berlin!"));
+	    PdfContentByte canvas = writer.getDirectContentUnder();
+	    Image image = Image.getInstance(IMAGE);
+	    image.scaleAbsolute(PageSize.A4.rotate());
+	    image.setAbsolutePosition(0, 0);
+	    canvas.addImage(image);
+	    document.close();
+	}
+
+}
+

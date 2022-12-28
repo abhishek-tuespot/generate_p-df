@@ -1,0 +1,35 @@
+package com.example.pdf.service;
+
+import java.io.FileNotFoundException;
+
+import org.springframework.stereotype.Service;
+
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+
+@Service
+public class PdfFileService {
+
+	public void pdfCreation() {
+		
+		
+		
+		try {
+			PdfWriter writer =new PdfWriter("/pdf");
+			
+			PdfDocument pdfDocument= new PdfDocument(writer);
+			pdfDocument.addNewPage();
+			
+			Document document = new Document(pdfDocument);
+//			PdfWriter.getInstance(document, new FileOutputStream("iTextHelloWorld.pdf"));
+			document.close();
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+}

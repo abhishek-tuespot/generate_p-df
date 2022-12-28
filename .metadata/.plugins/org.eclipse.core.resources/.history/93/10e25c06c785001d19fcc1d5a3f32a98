@@ -1,0 +1,36 @@
+package com.example;
+
+import java.io.FileOutputStream;
+
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.pdf.PdfWriter;
+public class TestClass {
+	
+	 private static String FILE = "/home/tuespot-abhi/FirstPdf.pdf";
+	 private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18,
+	            Font.BOLD);
+	public static void main(String[] args) {
+		
+	
+		   try {
+	            Document document = new Document();
+	            PdfWriter.getInstance(document, new FileOutputStream(FILE));
+	            document.open();
+	           
+	            //adding the tag
+	            
+	            Anchor anchor = new Anchor("First Chapter", catFont);
+	            anchor.setName("First Chapter");
+	            
+	            
+	            
+	            
+	            document.close();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+		
+	}
+
+}

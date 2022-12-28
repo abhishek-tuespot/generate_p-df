@@ -1,0 +1,64 @@
+package com.example;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+
+public class TestClass {
+
+	private static String FILE = "/home/tuespot-abhi/pdfGenerate/FirstPdf.pdf";
+	private static Font catFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+
+	public static void main(String[] args) {
+
+//		try {
+//			Document document = new Document();
+//			PdfWriter.getInstance(document, new FileOutputStream(FILE));
+//			document.open();
+//
+//			// adding the tag
+//			String para = "Welcome to Tutorialspoint.";
+//			// Creating an Area Break
+//			Paragraph para1 = new Paragraph(para);
+//			document.add(para1);
+//
+//			document.close();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		Document document = new Document();
+		try {
+			PdfWriter.getInstance(document, new FileOutputStream("iTextHelloWorld.pdf"));
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		document.open();
+		Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
+		Chunk chunk = new Chunk("Hello World", font);
+
+		try {
+			document.add(chunk);
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		document.close();
+
+	}
+
+}

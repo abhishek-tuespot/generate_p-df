@@ -1,0 +1,5 @@
+package com.tuespot.genertatepdf.service;
+
+public class GeneratePdf {
+
+}

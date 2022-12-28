@@ -1,0 +1,18 @@
+package com.tuespot.runner;
+
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+
+import com.tuespot.genertatepdf.service.GeneratePdf;
+
+public class Runner implements ApplicationRunner {
+
+	private GeneratePdf generatePdf;
+	
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,37 @@
+package com.example;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+
+public class TestClass {
+	
+	 private static String FILE = "/home/tuespot-abhi/FirstPdf.pdf";
+	
+	public static void main(String[] args) {
+		
+		
+	String filepath=;
+		
+		try {
+			PdfWriter writer =new PdfWriter("filepath");
+			
+			PdfDocument pdfDocument= new PdfDocument(writer);
+			pdfDocument.addNewPage();
+			
+			Document document = new Document(pdfDocument);
+			PdfWriter.getInstance(document, new FileOutputStream("iTextHelloWorld.pdf"));
+			document.close();
+			
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}
